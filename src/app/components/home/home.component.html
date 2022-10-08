@@ -1,0 +1,39 @@
+<div class="content-table">
+<div class="mat-elevation-z8">
+  <mat-form-field>
+    <mat-label>Search any field</mat-label>
+    <input matInput placeholder="" (keyup)="Filterchange($event)">
+  </mat-form-field>
+<table mat-table matSort [dataSource]="dataSource">
+
+  <ng-container matColumnDef="pl_name">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
+ <td mat-cell *matCellDef="let element">  <a style="cursor:pointer;" (click)="goToPlanetStage(element.pl_name)"> {{element.pl_name}}</a> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="disc_year">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Discovery Year </th>
+    <td mat-cell *matCellDef="let element"> {{element.disc_year}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="pl_orbper">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Orbital Period </th>
+    <td mat-cell *matCellDef="let element"> {{element.pl_orbper}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="disc_telescope">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> Discovery Telescope </th>
+    <td mat-cell *matCellDef="let element"> {{element.disc_telescope}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5,10,30]" showFirstLastButtons>
+
+</mat-paginator>
+</div>
+</div>

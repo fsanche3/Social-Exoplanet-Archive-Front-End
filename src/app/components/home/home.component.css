@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+   
+
+  }
+
+.content-table{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+}
+
+.mat-form-field{
+    background-color: dimgrey;
+    width: 100%;
+}
