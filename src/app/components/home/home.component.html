@@ -1,3 +1,10 @@
+<app-nav></app-nav>
+
+<div class="landing">
+  <h2>Welcome!</h2>
+  <p class="nice-font">Search and select an Exoplanet of interest to see what people are saying. Sign in, to share your thoughts.</p>
+</div>
+
 <div class="content-table">
 <div class="mat-elevation-z8">
   <mat-form-field>
@@ -13,26 +20,26 @@
 
   <ng-container matColumnDef="disc_year">
     <th mat-header-cell mat-sort-header *matHeaderCellDef> Discovery Year </th>
-    <td mat-cell *matCellDef="let element"> {{element.disc_year}} </td>
+    <td mat-cell *matCellDef="let element"> <a style="cursor:pointer;" (click)="goToPlanetStage(element.pl_name)"> {{element.disc_year}}</a> </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="pl_orbper">
     <th mat-header-cell mat-sort-header *matHeaderCellDef> Orbital Period </th>
-    <td mat-cell *matCellDef="let element"> {{element.pl_orbper}} </td>
+    <td mat-cell *matCellDef="let element"> <a style="cursor:pointer;" (click)="goToPlanetStage(element.pl_name)">{{element.pl_orbper}} </a> </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="disc_telescope">
     <th mat-header-cell mat-sort-header *matHeaderCellDef> Discovery Telescope </th>
-    <td mat-cell *matCellDef="let element"> {{element.disc_telescope}} </td>
+    <td mat-cell *matCellDef="let element">  <a style="cursor:pointer;" (click)="goToPlanetStage(element.pl_name)"> {{element.disc_telescope}} </a>  </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[5,10,30]" showFirstLastButtons>
+<mat-paginator [pageSizeOptions]="[10,20]" showFirstLastButtons>
 
 </mat-paginator>
 </div>

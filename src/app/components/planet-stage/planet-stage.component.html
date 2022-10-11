@@ -1,3 +1,6 @@
+<app-nav></app-nav>
+<br>
+<br>
 <div class="container">
     <div class="container-box">
         <div class="box a">
@@ -29,5 +32,23 @@
             <p>{{planets[0].disc_telescope}}</p> 
         </div>
       </div>
-    <div class="dashboard"> </div>
+
+      <div class="input">
+        <h3>Share Your Thoughts</h3>
+        <div class="text-field">
+        <input [(ngModel)]="texts" type="text" class="textarea"  placeholder="Penny for your thoughts, links, or images..."> <br/>
+    </div>
+    <div class="img-btns"> 
+        <input class="main-bttn" type="button"  value="Upload File">
+        <input type="file" (change)="getFile($event)"> 
+    </div>
+<div class="submit-post">
+    <button (click)="uploadPost(texts,planets[0].pl_name, '')">Post</button>
+</div>
+    </div>
+    <br> 
+    <div class="post-feed">
+        <h2>Post & Comments</h2>    
+        <app-post-feed [planet]="name"></app-post-feed>
+    </div>
 </div>

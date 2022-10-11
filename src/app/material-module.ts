@@ -9,6 +9,8 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatSelectModule } from "@angular/material/select"
 import { MatRadioModule } from "@angular/material/radio"
 import { MatCheckboxModule } from "@angular/material/checkbox"
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
     exports:[
@@ -21,7 +23,9 @@ import { MatCheckboxModule } from "@angular/material/checkbox"
         MatDialogModule,
         MatSelectModule,
         MatRadioModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        FormsModule
+
 
     ]
 })
