@@ -158,6 +158,13 @@
     transform: translateY(2px);
   }
 
+  #title{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-bottom: 3px;
+    margin-left: 20%;
+
+}
+
   .img-btns{
     margin-left: 20%;
   }
@@ -202,5 +209,7 @@
     background-color: white;
     border-color: #333333;
   }
+
+ 
   
 

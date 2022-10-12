@@ -10,6 +10,8 @@ import { MatSelectModule } from "@angular/material/select"
 import { MatRadioModule } from "@angular/material/radio"
 import { MatCheckboxModule } from "@angular/material/checkbox"
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { FormsModule } from '@angular/forms';
         MatSelectModule,
         MatRadioModule,
         MatCheckboxModule,
-        FormsModule
+        FormsModule,
+        MatCardModule,
 
 
     ]
