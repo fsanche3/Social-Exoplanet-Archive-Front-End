@@ -11,7 +11,7 @@ export class PostService {
   constructor() { }
 
   async upsertPost(texts: string, planet: string, img_url?: string){
-    let info = {texts, planet,img_url};
+    let info = {texts, planet, img_url};
 
     let resp = await fetch(this.url+"post/upsert",{
       method:'POST',

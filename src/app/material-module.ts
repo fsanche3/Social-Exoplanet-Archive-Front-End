@@ -1,4 +1,6 @@
 import { NgModule } from "@angular/core";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from '@angular/material/icon'
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatPaginatorModule } from "@angular/material/paginator";
@@ -28,7 +30,12 @@ import { MatCardModule } from '@angular/material/card';
         MatCheckboxModule,
         FormsModule,
         MatCardModule,
-
+        MatInputModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatTabsModule,
+        MatIconModule,
 
     ]
 })

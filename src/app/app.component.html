@@ -1,1 +1,2 @@
-<router-outlet></router-outlet>
+<app-nav [loggedInUser]="loggedInUser" (loggedOut)="updateLogin()" ></app-nav>
+<router-outlet (activate)="updateLogin()" ></router-outlet>

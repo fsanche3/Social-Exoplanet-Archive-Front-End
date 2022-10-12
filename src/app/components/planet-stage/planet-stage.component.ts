@@ -3,6 +3,8 @@ import Planet from 'src/app/models/planet';
 import { ExoplanetsService } from 'src/app/services/exoplanets.service';
 import { FormsModule } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
+import { ExoUserService } from 'src/app/services/exo-user.service';
+
 
 
 @Component({
@@ -16,25 +18,55 @@ export class PlanetStageComponent implements OnInit {
   name : string = "";
   file: any;
   texts: string = "";
+  imgProp: any;
+  imgUploaded: boolean = false;
 
-  constructor(private exoServ: ExoplanetsService, private postServ: PostService) { }
+  constructor(private exoServ: ExoplanetsService, private postServ:PostService,
+    private userServ: ExoUserService) { }
 
   ngOnInit(): void {
     this.getPlanet();
   }
 
- async uploadPost(texts: string, planet: string, img_url: string){
-  let success = await this.postServ.upsertPost(texts, planet, img_url);
-  if(success){
-    alert("post created");
-  } else{
-    alert("This account name is already being used please try another unique name");
-  }
-  }
+ 
 
   getFile(event: any){
-    this.file = event.target.files[0];
-    console.log("file", this.file)
+    if(event.target.files[0].size > 200000){
+      alert("File size exceeds capicity. Please choose another.");
+      return;
+    } else {
+      this.file = event.target.files[0];
+    }
+  }
+
+  uploadImg() {
+    if (this.file) {
+      this.userServ.uploadImage(this.file).subscribe((resp: any) => {
+        this.imgProp = resp;
+        this.imgUploaded = true;
+        alert("Uploaded and ready for post.")
+      })
+    } else {
+      alert("Please select a file first");
+    }
+  }
+
+  async submitPost(){
+    if(this.texts == "" && this.imgUploaded == false){
+      alert("Cannot submit empty post!");
+    } else {
+      if(this.imgProp){
+      let resp = await this.postServ.upsertPost(this.texts, this.planets[0].pl_name, this.imgProp.url);
+      if(resp){
+        window.location.reload();
+      }
+    } else{
+      let resp = await this.postServ.upsertPost(this.texts, this.planets[0].pl_name, "");
+      if(resp){
+        window.location.reload();
+      }
+    }
+    }
   }
 
   getPlanet(){

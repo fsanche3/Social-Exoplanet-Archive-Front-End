@@ -11,9 +11,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { PostComponent } from './components/post/post.component'
 import { ExoplanetsService } from './services/exoplanets.service';
 import { PostService } from './services/post.service';
-import { UserService } from './services/user.service';
 import { FormsModule } from '@angular/forms';
 import { PostFeedComponent } from './components/post-feed/post-feed.component';
+import { ExoUserService } from './services/exo-user.service';
+import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { RegisterLoginComponent } from './components/register-login/register-login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PostFeedComponent } from './components/post-feed/post-feed.component';
     PlanetStageComponent,
     NavComponent,
     PostComponent,
-    PostFeedComponent
+    PostFeedComponent,
+    LoginRegisterComponent,
+    RegisterLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { PostFeedComponent } from './components/post-feed/post-feed.component';
     FormsModule,
     
   ],
-  providers: [ExoplanetsService,PostService, UserService],
+  providers: [ExoplanetsService,PostService, ExoUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

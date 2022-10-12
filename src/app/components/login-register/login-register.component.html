@@ -1,0 +1,47 @@
+<div class="login-page">
+<mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center;">
+    Login
+    </mat-card-title>
+            <mat-card-content>
+                <form action="">
+                    <mat-form-field>
+                        <input [(ngModel)]="username"
+                        matInput
+                        placeholder="Username"
+                        required
+                        name="username"
+                         >
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        </mat-form-field>
+                        
+                        <mat-form-field>
+                        <input [(ngModel)]="password"
+                        matInput
+                        placeholder="Password"
+                        type="password"
+                        required
+                        minlength="4"
+                        name="password"
+                        >
+                         <mat-error 
+                         *ngIf="password.errors">Password is required
+                        </mat-error>
+                        <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                    <button (click)="login()"
+                    mat-raised-button
+                    color="primary"
+                    class="login-button">
+                    Login
+                </button>
+                <button 
+                    mat-raised-button
+                    color="pink"
+                    class="login-button" (click)="goToRegister()">
+                    Register
+                </button>
+                </form>
+                </mat-card-content>
+                </mat-card>
+                </div>

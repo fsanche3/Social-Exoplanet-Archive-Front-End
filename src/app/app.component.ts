@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exoplanet-archive';
+  loggedInUser: any;
+
+  constructor(private authServ: AuthService) { }
+
+  async updateLogin() {
+    this.loggedInUser = await this.authServ.getLoggedInUser();
+  }
+
 }
