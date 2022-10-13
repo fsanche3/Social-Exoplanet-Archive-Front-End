@@ -16,6 +16,7 @@ import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { ExoUserService } from './services/exo-user.service';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterLoginComponent } from './components/register-login/register-log
     PostComponent,
     PostFeedComponent,
     LoginRegisterComponent,
-    RegisterLoginComponent
+    RegisterLoginComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

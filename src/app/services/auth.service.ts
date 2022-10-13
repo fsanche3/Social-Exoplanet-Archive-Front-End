@@ -50,7 +50,7 @@ export class AuthService {
     logOut(){
       this.loggedInUser = null;
       sessionStorage.removeItem('userId');
-      sessionStorage.removeItem('Auth');
+      sessionStorage.removeItem('token');
     }
 
     async getUser(){

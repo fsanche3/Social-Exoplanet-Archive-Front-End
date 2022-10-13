@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Planet from 'src/app/models/planet';
 import { ExoplanetsService } from 'src/app/services/exoplanets.service';
-import { FormsModule } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
 import { ExoUserService } from 'src/app/services/exo-user.service';
 

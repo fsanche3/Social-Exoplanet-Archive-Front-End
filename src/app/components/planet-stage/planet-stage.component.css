@@ -8,6 +8,8 @@
     display: grid;
     grid-gap: 10px;
     grid-template-columns: auto;
+    background-color: lemonchiffon;
+
     grid-template-rows: 85px 85px;
     grid-template-areas:
       'a b c d'
@@ -18,13 +20,28 @@
   /* @media() */
   
   .box {
-    background-color: #9009A0;
     border-radius: 5px;
     justify-content: center;
   }
+  .box h3 {
+    display: flex;
+    justify-content: center;
+  }
+  .box h4 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .box p {
+    display: flex;
+    justify-content: center;
+  }
+
+  
   
   .a {
     grid-area: a;
+    background-color: darkgray;
   }
   
   .b {
@@ -225,7 +242,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 1.4;
-    width: 75%;
+    width: 78%;
     height: 50px;
     transition: all 0.2s;
   }

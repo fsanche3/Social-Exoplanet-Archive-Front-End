@@ -24,9 +24,7 @@
                         minlength="4"
                         name="password"
                         >
-                         <mat-error 
-                         *ngIf="password.errors">Password is required
-                        </mat-error>
+                        
                         <mat-icon matSuffix>lock</mat-icon>
                     </mat-form-field>
                     <button (click)="login()"

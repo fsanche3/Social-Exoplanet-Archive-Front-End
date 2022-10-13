@@ -12,6 +12,7 @@ import { MatSelectModule } from "@angular/material/select"
 import { MatRadioModule } from "@angular/material/radio"
 import { MatCheckboxModule } from "@angular/material/checkbox"
 import { FormsModule } from '@angular/forms';
+import {MatBadgeModule} from "@angular/material/badge";
 import { MatCardModule } from '@angular/material/card';
 
 
@@ -36,6 +37,8 @@ import { MatCardModule } from '@angular/material/card';
         MatFormFieldModule,
         MatTabsModule,
         MatIconModule,
+        MatBadgeModule,
+        
 
     ]
 })

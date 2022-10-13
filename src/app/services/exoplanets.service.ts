@@ -12,6 +12,8 @@ export class ExoplanetsService {
 
   allPlanetsUrl: string = `${environment.baseUrl}`;
   stagePlanetUrl: string = `${environment.stageUrl}`;
+  crrPlanet: string = "";
+
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +22,7 @@ export class ExoplanetsService {
   }
 
   getListByName(name: string):Observable<Planet[]>{
+    this.crrPlanet = name;
     return this.http.get<Planet[]>(`${this.stagePlanetUrl}+%27`+name+`%27&format=json`,{headers: {'Content-Type': 'text/plain'} })
   }
 

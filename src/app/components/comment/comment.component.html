@@ -1,0 +1,8 @@
+<div style="max-width: 600px; margin: auto; padding: 1em;">
+    <div *ngFor="let comment of comments">
+        <p>{{comment.userDto.img}}</p>
+        <p>{{comment.date | date : "short"}}</p>
+        <p>{{comment.texts}}</p>
+    </div>
+
+</div>

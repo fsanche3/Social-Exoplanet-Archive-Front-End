@@ -28,8 +28,71 @@ export class PostService {
     }
   }
 
+  async uploadComment(postId: number, texts: string, planet: string, img_url?: string ){
+    let info = {texts, planet, img_url};
+
+    let resp = await fetch(this.url+"post/comment/"+postId,{
+      method:'POST',
+      body:JSON.stringify(info),
+      headers:new Headers({
+          'Content-Type':'application/json',
+          'Authorization': sessionStorage.getItem('token')+''
+      })
+  });
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
   async getPostByPlanet(planet:string){
     let resp = await fetch(this.url+"post/"+planet,{
+      method:'GET',
+      headers:new Headers({
+        'Content-Type':'application/json',
+    })
+    });
+    if(resp.status === 200){
+      return resp.json();
+    } else {
+      return false;
+    }
+  }
+
+  async LikePost(postId: number){
+    let resp = await fetch(this.url+"post/like/"+postId,{
+      method:'PUT',
+      headers:new Headers({
+        'Content-Type':'application/json',
+        'Authorization': sessionStorage.getItem('token')+''
+    })
+    });
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async unLikePost(postId: number){
+    let resp = await fetch(this.url+"post/unlike/"+postId,{
+      method:'PUT',
+      headers:new Headers({
+        'Content-Type':'application/json',
+        'Authorization': sessionStorage.getItem('token')+''
+    })
+    });
+    if(resp.status === 200){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  async getCommentsByPost(postId: number){
+    let resp = await fetch(this.url+"post/post-comments/"+postId,{
       method:'GET',
       headers:new Headers({
         'Content-Type':'application/json',
