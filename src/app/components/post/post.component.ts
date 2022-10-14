@@ -28,6 +28,9 @@ export class PostComponent implements OnInit {
     this.isLiked()
     }
   }
+  
+  
+
 
   isLiked(){
     for(let i = 0; i < this.post.usersDto.length; i++){

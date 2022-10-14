@@ -1,0 +1,21 @@
+.mat-card-subtitle {
+    color: darkslategray;
+}
+
+.hr-text:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 .5em;
+    line-height: 1.5em;
+    color: #818078;
+    background-color: #fcfcfa;
+  }
+
+  mat-card{
+    margin-top: 9px;
+    background-color: whitesmoke;
+    color: black;
+  }

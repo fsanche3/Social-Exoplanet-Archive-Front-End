@@ -1,8 +1,24 @@
 <div style="max-width: 600px; margin: auto; padding: 1em;">
-    <div *ngFor="let comment of comments">
-        <p>{{comment.userDto.img}}</p>
-        <p>{{comment.date | date : "short"}}</p>
-        <p>{{comment.texts}}</p>
-    </div>
+    
+          <div *ngFor="let comment of comments">
+<mat-card>
+            <mat-card-header>
+                <mat-card-title >{{comment.userDto.username}}</mat-card-title>
+            <img src={{comment.userDto.img}} mat-card-avatar>
+            <mat-card-subtitle>{{comment.date | date: "short"}}</mat-card-subtitle>
+        </mat-card-header>
+            <mat-card-content>
+                {{comment.texts}}
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button  (click)="Like()"  mat-icon-button matBadge={{likes}} matBadgePosition="after" matBadgeColor="warn" matBadgeSize="small">
+                    <mat-icon  >thumb_up_off_alt</mat-icon>
+                </button>  
+                
+                </mat-card-actions>
+</mat-card>
+          </div>
 
-</div>
+        </div>
+
+      

@@ -5,12 +5,10 @@ mat-card{
 mat-card-header {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1em;
 }
 
 mat-card-title{
    font-weight: 410;
-   
 }
 
 .nice-font {
@@ -130,3 +128,11 @@ mat-card-actions button{
     color: #818078;
     background-color: #fcfcfa;
   }
+
+  .mat-card-subtitle {
+    color: darkslategray;
+}
+
+.mat-card-actions .mat-card-subtitle .mat-card-content{
+  margin: 0px;
+}
