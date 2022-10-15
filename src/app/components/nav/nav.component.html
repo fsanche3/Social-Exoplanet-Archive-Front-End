@@ -23,7 +23,7 @@
           <div class="menu" [class.menuClasse]="menuVariable">
             <ul>
               <li><a (click)="goHome()">Home</a></li>
-              <li *ngIf="loggedInUser" ><a >Profile</a></li>
+              <li *ngIf="loggedInUser" ><a (click)="goProfile()  " >Profile</a></li>
               <li  *ngIf="loggedInUser" ><a (click)="logout()" >LogOut</a></li>
               <li  *ngIf="!loggedInUser"><a  (click)="signIn()">Login</a></li>
 

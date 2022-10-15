@@ -1,0 +1,7 @@
+<ng-container *ngIf="comments.length >0 else message">
+    <app-comment 
+    *ngFor = "let c of comments" [comment]="c">  </app-comment>
+</ng-container>
+<ng-template #message>
+    <span id="message"></span>
+</ng-template>

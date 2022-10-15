@@ -10,7 +10,7 @@ import { PostService } from 'src/app/services/post.service';
 export class CommentComponent implements OnInit {
 
   comments: any[] = [];
-   comment: any;
+  @Input() comment: any;
   @Input() postId: any;
   @Input() likes: number = 0;
   likeToggle: boolean = false;
@@ -22,23 +22,17 @@ export class CommentComponent implements OnInit {
   constructor(private postServ: PostService, private authServ: AuthService) { }
 
   ngOnInit(): void {
-    this.getComments();
-    this.isLiked();
-  }
-
- async getComments(){
-    let resp = await this.postServ.getCommentsByPost(this.postId);
-    this.comments = resp;
+    this.likes = this.comment.usersDto.length;
+    if(this.authServ.loggedInUser){
+      this.isLiked();
+    }
+    
   }
 
   isLiked(){
-    for(const element of this.comments){
-       if(element.parent_id == this.postId){
-        this.comment = element.usersDto;
-      this.ids = element.usersDto;
-       }
+    for(let i = 0; i < this.comment.usersDto.length; i++){
+        this.ids[i] = this.comment.usersDto[i].id;
     }
-
     if(this.ids.includes(this.authServ.loggedInUser.id)){
       this.likeToggle = true;
       return;

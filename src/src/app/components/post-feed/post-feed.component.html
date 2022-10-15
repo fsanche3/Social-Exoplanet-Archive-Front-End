@@ -1,7 +1,0 @@
-<ng-container *ngIf="posts.length>0 else message">
-    <app-post 
-    *ngFor = "let p of posts" [post]="p">  </app-post>
-</ng-container>
-<ng-template #message>
-    <span id="message">No accounts to show</span>
-</ng-template>

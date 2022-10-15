@@ -17,6 +17,8 @@ import { ExoUserService } from './services/exo-user.service';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { CommentFeedComponent } from './components/comment-feed/comment-feed.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CommentComponent } from './components/comment/comment.component';
     PostFeedComponent,
     LoginRegisterComponent,
     RegisterLoginComponent,
-    CommentComponent
+    CommentComponent,
+    CommentFeedComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

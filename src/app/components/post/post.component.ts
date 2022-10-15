@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Post from 'src/app/models/post';
 import { AuthService } from 'src/app/services/auth.service';
 import { ExoplanetsService } from 'src/app/services/exoplanets.service';
@@ -20,7 +21,7 @@ export class PostComponent implements OnInit {
   imgUploaded: boolean = false;
   imgProp: any;
 
-  constructor(private postServ: PostService, private authServ: AuthService, private exoServ: ExoplanetsService) { }
+  constructor(private postServ: PostService, private authServ: AuthService, private exoServ: ExoplanetsService, private router:Router) { }
 
   ngOnInit(): void {
     this.likes = this.post.usersDto.length;
@@ -30,7 +31,11 @@ export class PostComponent implements OnInit {
   }
   
   
-
+  setUserNav(){
+    this.postServ.setUser(this.post.userDto.id);
+    this.postServ.setThroughNav(false);
+    this.router.navigate(['profile']);
+  }
 
   isLiked(){
     for(let i = 0; i < this.post.usersDto.length; i++){
@@ -87,6 +92,9 @@ export class PostComponent implements OnInit {
   }
   
   async submitComment(){
+
+    if(this.authServ.loggedInUser){
+
     if(this.texts == ""){
       alert("Cannot submit empty post!");
     } else {
@@ -102,6 +110,9 @@ export class PostComponent implements OnInit {
       }
     }
     }
+  } else {
+    alert("Must be logged in to post")
+  }
   }
 
   toggleReply(){

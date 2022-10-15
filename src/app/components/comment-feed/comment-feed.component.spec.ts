@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlanetStageComponent } from './planet-stage.component';
+import { CommentFeedComponent } from './comment-feed.component';
 
-describe('PlanetStageComponent', () => {
-  let component: PlanetStageComponent;
-  let fixture: ComponentFixture<PlanetStageComponent>;
+describe('CommentFeedComponent', () => {
+  let component: CommentFeedComponent;
+  let fixture: ComponentFixture<CommentFeedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlanetStageComponent ]
+      declarations: [ CommentFeedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PlanetStageComponent);
+    fixture = TestBed.createComponent(CommentFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

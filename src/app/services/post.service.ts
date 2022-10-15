@@ -7,8 +7,12 @@ import { environment } from 'src/environments/environment';
 export class PostService {
 
   url: string = `${environment.apiUrl}`;
+  user: number = 0;
+  throughNav: any;
 
-  constructor() { }
+
+  constructor() { // nice
+  }
 
   async upsertPost(texts: string, planet: string, img_url?: string){
     let info = {texts, planet, img_url};
@@ -105,4 +109,47 @@ export class PostService {
     }
   }
 
+  async getPostsByUser(userId: number){
+    let resp = await fetch(this.url+"post/user/"+userId,{
+      method:'GET',
+      headers:new Headers({
+        'Content-Type':'application/json',
+    })
+    });
+    if(resp.status === 200){
+      return resp.json();
+    } else {
+      return false;
+    }
+  }
+
+  async getCommentsByUser(userId: number){
+    let resp = await fetch(this.url+"post/user/comments/"+userId,{
+      method:'GET',
+      headers:new Headers({
+        'Content-Type':'application/json',
+    })
+    });
+    if(resp.status === 200){
+      return resp.json();
+    } else {
+      return false;
+    }
+  }
+
+  getUser(){
+    return this.user;
+  }
+
+  setUser(a: number){
+this.user = a;
+  }
+  getThroughNav(){
+    return this.throughNav;
+  }
+
+  setThroughNav(a: any){
+this.throughNav = a;
+  }
+  
 }

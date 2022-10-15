@@ -1,16 +1,17 @@
-<div style="max-width: 600px; margin: auto; padding: 1em;">
+<div style="max-width: 550px; margin: auto; padding: 1em;">
 <mat-card>
     <mat-card-header>
-            <mat-card-title >{{post.userDto.username}}</mat-card-title>
-        <img src={{post.userDto.img}} mat-card-avatar>
+            <mat-card-title >
+                <a (click)="setUserNav()" style="cursor: pointer;"> {{post.userDto.username}} </a></mat-card-title>
+        <img src={{post.userDto.img}} mat-card-avatar> 
         <mat-card-subtitle>{{post.date | date: "short"}}</mat-card-subtitle>
     </mat-card-header>
-    <img style="max-height:450px ;" src={{post.img_url}} mat-card-image>
+    <img style="max-height:420px ;" src={{post.img_url}} mat-card-image>
     <mat-card-content class="nice-font">
-        {{post.texts}}
+        <p>{{post.texts}}</p>
         <br>
         <hr  class="hr-text" data-content="">
-        <app-comment [postId]="post.id"></app-comment>
+        <app-comment-feed [postId]="post.id"></app-comment-feed>
 
     </mat-card-content>
 

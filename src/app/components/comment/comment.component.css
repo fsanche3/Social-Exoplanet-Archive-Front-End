@@ -19,3 +19,12 @@
     background-color: whitesmoke;
     color: black;
   }
+
+  mat-card-actions button{
+    margin-right: 10px;
+    background-color: lemonchiffon;
+}
+.nice-font  {
+  font-size: large;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
