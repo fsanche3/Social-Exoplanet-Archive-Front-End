@@ -69,12 +69,22 @@ export class AuthService {
       }
     }
 
-  register(name: string, username: string, password: string, email: string ): Observable<boolean>{
-    const payload = {name, username, password, email};
-    return this.http.post<boolean>(`${this.tokenUrl}/register`, payload).pipe(
-      catchError((err) => {
-        return throwError(() => new Error('Username taken'));
-      })
-    );
-  }
+    async register(username: string , password: string){
+      let credentials = {username, password};
+  
+      let resp = await fetch(this.tokenUrl+'/register',{
+        method:'POST',
+        body:JSON.stringify(credentials),
+        headers:new Headers({
+            'Content-Type':'application/json'
+        })
+    });
+        if(resp.status === 201){
+            return true;
+        } else {
+          return false;
+        }
+      }
+    
+  
 }

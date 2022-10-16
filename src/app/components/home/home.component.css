@@ -4,6 +4,15 @@ table {
 
   }
 
+  .mat-table{
+    background: gray;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .5em 0;
+    background: gray;
+}
+
   .nice-font {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-bottom: 3px;

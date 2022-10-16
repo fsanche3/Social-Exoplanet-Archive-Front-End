@@ -1,8 +1,10 @@
-<div style="max-width: 600px; margin: auto; padding: 1em;">
+<div style="max-width: 600px; width: 500px; margin: auto; padding: 1em;">
     
 <mat-card>
             <mat-card-header>
-                <mat-card-title >{{comment.userDto.username}}</mat-card-title>
+                <mat-card-title >
+                    <a (click)="setUserNav()" style="cursor: pointer;"> {{comment.userDto.username}}</a> 
+                </mat-card-title>
             <img src={{comment.userDto.img}} mat-card-avatar>
             <mat-card-subtitle>{{comment.date | date: "short"}}</mat-card-subtitle>
         </mat-card-header>

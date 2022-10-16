@@ -137,6 +137,20 @@ export class PostService {
     }
   }
 
+  async getLikesByUser(userId: number){
+    let resp = await fetch(this.url+"post/likes/"+userId,{
+      method:'GET',
+      headers:new Headers({
+        'Content-Type':'application/json',
+    })
+    });
+    if(resp.status === 200){
+      return resp.json();
+    } else {
+      return false;
+    }
+  }
+
   getUser(){
     return this.user;
   }

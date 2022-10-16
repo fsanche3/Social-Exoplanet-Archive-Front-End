@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
 
@@ -19,7 +20,7 @@ export class CommentComponent implements OnInit {
 
 
 
-  constructor(private postServ: PostService, private authServ: AuthService) { }
+  constructor(private postServ: PostService, private authServ: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.likes = this.comment.usersDto.length;
@@ -42,6 +43,14 @@ export class CommentComponent implements OnInit {
 
   }
   
+  setUserNav(){
+    localStorage.setItem('profile-user',this.comment.userDto.id);
+    localStorage.setItem('throughNav', 'false');
+    this.postServ.setUser(this.comment.userDto.id);
+    this.postServ.setThroughNav(false);
+    this.router.navigate(['profile']);
+  }
+
  async Like(){
 
   if(this.authServ.loggedInUser){

@@ -10,21 +10,47 @@
         </div>
         <div class="name">{{username}}</div>
         <div *ngIf="isUser" class="tag">
-           <button > Change Img</button>
-        </div>
+          <div  class="submit-post">
+            <div class="img-btns"> 
+              <input *ngIf="imgUploaded" type="file" (change)="getFile($event)"> 
+    </div>
+    <button *ngIf="fileUploaded" class="main-bttn" type="button" (click)="Cancel()" >Cancel</button>
+    <button *ngIf="fileUploaded" class="main-bttn" type="button" (click)="uploadImg()"  value="Upload File">Upload File</button>
+
+       
+    <button *ngIf="!imgUploaded" (click)="toggleUploaded()">Swap Image</button>
+        </div>       
+       </div>
       </div>
 
       <div class="bottom-section">
         
-        <div class="videos">60+ <span>Posts</span></div>
+        <div class="posts">{{posts.length}}<span>Posts</span></div>
         <div class="border"></div>
-        <div class="subscribers">200+ <span>Likes</span></div>
+        <div class="coments">{{comments.length}}<span>Comments</span></div>
+        <div class="border"></div>
+        <div class="subscribers"> {{likes}} <span>Likes</span></div>
+
       </div>
     </div>
     <div class="post-comments-container">
         <mat-tab-group >
-            <mat-tab label="Post"> Post </mat-tab>
-            <mat-tab label="Comments"> Comments </mat-tab>
+            <mat-tab label="Post"> <ng-container *ngIf="posts.length>0 else message">
+              <app-post 
+              *ngFor = "let p of posts" [post]="p">  </app-post>
+          </ng-container>
+          <ng-template #message>
+              <span id="message">No post</span>
+          </ng-template></mat-tab>
+            <mat-tab label="Comments"> 
+              <ng-container *ngIf="comments.length >0 else message">
+                <app-comment 
+                *ngFor = "let c of comments" [comment]="c">  </app-comment>
+            </ng-container>
+            <ng-template #message>
+                <span id="message"></span>
+            </ng-template>
+           </mat-tab>
           </mat-tab-group>
 
     </div>

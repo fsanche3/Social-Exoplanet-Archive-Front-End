@@ -36,6 +36,9 @@ export class NavComponent implements OnInit {
   }
 
   goProfile(){
+    localStorage.setItem('throughNav', 'true');
+    localStorage.setItem('profile-user',this.authServ.loggedInUser.id);
+
     this.postServ.setThroughNav(true);
     this.router.navigate(['profile']);
   }

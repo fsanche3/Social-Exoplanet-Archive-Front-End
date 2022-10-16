@@ -20,15 +20,14 @@ export class ExoUserService {
       return this.http.post<string>(this.url+"user/upload",parameters);
     }
   
-    async updateUser(img_url: string){
-      let info = {img_url};
+    async updateUser(img: string, id: number){
+      let info = {img};
   
-      let resp = await fetch(this.url+"user/update-img",{
+      let resp = await fetch(this.url+"user/update-img/"+id,{
         method:'PUT',
         body:JSON.stringify(info),
         headers:new Headers({
             'Content-Type':'application/json',
-            'Authorization': sessionStorage.getItem('token')+''
         })
     });
       if(resp.status === 200){
@@ -38,4 +37,18 @@ export class ExoUserService {
       }
     }
    
+    async getUser(id: number){
+      let resp = await fetch(this.url+"user/"+id,{
+        method:'GET',
+        headers:new Headers({
+            'Content-Type':'application/json',
+            'Authorization': sessionStorage.getItem('token')+''
+        })
+    });
+      if(resp.status === 200){
+        return resp.json();
+      } else {
+        return false;
+      }
+    }
   }

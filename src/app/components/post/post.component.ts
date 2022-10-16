@@ -32,6 +32,8 @@ export class PostComponent implements OnInit {
   
   
   setUserNav(){
+    localStorage.setItem('profile-user',this.post.userDto.id);
+    localStorage.setItem('throughNav', 'false');
     this.postServ.setUser(this.post.userDto.id);
     this.postServ.setThroughNav(false);
     this.router.navigate(['profile']);
