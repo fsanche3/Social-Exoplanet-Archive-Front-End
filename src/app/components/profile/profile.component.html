@@ -37,11 +37,14 @@
         <mat-tab-group >
             <mat-tab label="Post"> <ng-container *ngIf="posts.length>0 else message">
               <app-post 
-              *ngFor = "let p of posts" [post]="p">  </app-post>
+              *ngFor = "let p of pageSlice" [post]="p">  </app-post>
+              
           </ng-container>
           <ng-template #message>
               <span id="message">No post</span>
-          </ng-template></mat-tab>
+          </ng-template>
+         
+        </mat-tab>
             <mat-tab label="Comments"> 
               <ng-container *ngIf="comments.length >0 else message">
                 <app-comment 

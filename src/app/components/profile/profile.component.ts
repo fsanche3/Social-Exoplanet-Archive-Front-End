@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { AuthService } from 'src/app/services/auth.service';
 import { ExoUserService } from 'src/app/services/exo-user.service';
 import { PostService } from 'src/app/services/post.service';
@@ -20,6 +21,7 @@ export class ProfileComponent implements OnInit {
   file: any;
   imgUploaded: boolean = false;
   fileUploaded: boolean = false;
+  pageSlice: any;
   
   constructor(private postServ: PostService, private authServ: AuthService, private userServ: ExoUserService) { }
 
@@ -82,6 +84,7 @@ export class ProfileComponent implements OnInit {
   let resp = await this.postServ.getPostsByUser(id);
   if(resp){
     this.posts = resp;
+    this.pageSlice = this.posts.slice(0,3);
   }
  }
  async getCommentsByUser(id: number){
@@ -140,7 +143,7 @@ export class ProfileComponent implements OnInit {
   }
  }
 
- 
+
 
 
 }

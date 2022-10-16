@@ -1,7 +1,13 @@
 <ng-container *ngIf="posts.length>0 else message">
     <app-post 
-    *ngFor = "let p of posts" [post]="p">  </app-post>
+    *ngFor = "let p of pageSlice" [post]="p">  </app-post>
 </ng-container>
 <ng-template #message>
     <span id="message">Be the first to post!</span>
 </ng-template>
+<mat-paginator [length]="this.posts.length"
+                [pageSize]="5"
+                [pageSizeOptions]="[5,10]"
+                (page)="onPageChange($event)"
+>
+</mat-paginator>
