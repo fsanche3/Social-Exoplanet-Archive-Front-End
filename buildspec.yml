@@ -1,0 +1,26 @@
+version: 0.2
+
+env:
+    variables:
+        CACHE_CONTROL: "86400"
+        S3_BUCKET: "{{s3_bucket_url}}"
+        BUILD_FOLDER: "dist"
+
+phases:
+  install:
+    commands:
+      - curl -fsSL https://dev.nodesource.com/setup_16.x | sudo -E bash -
+      - yum install gcc-c++ make
+  pre_build:
+    commands:
+      - npm i -g @angular/cli
+      - npm install --force
+  build:
+    commands:
+      - ng build
+
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist/exoplanet-archive
