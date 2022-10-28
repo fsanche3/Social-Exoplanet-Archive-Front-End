@@ -1,7 +1,7 @@
 ## Social Exoplanet Archive: Front End
 
 ## Description
- This angular app was created to levarge [the Social Exoplanet Archive](https://github.com/fsanche3/Social-Exoplanet-Archive-Backend-API) and serve as its front end. For deployment, the app makes use of an AWS S3 bucket along with an AWS CI/CD Pipeline for automation. It also makes API calls to NASA's exoplanet archive to provide exoplanet table and feed.
+ This angular app was created to levarge [the Social Exoplanet Archive](https://github.com/fsanche3/Social-Exoplanet-Archive-Backend-API) and serve as its front end. For deployment, the app makes use of an AWS S3 bucket along with an AWS CI/CD Pipeline for automation. It also makes API calls to NASA's exoplanet archive to provide confirmed exoplanets table and feed.
 
 ## Tech Stack
 - [ ] Git
